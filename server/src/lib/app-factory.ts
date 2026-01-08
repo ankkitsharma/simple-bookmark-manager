@@ -27,6 +27,9 @@ export function createApp(options: AppFactoryOptions): Express {
   if (enableSwagger) {
     const openAPIDocument = generateOpenAPIDocument(port);
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openAPIDocument));
+    app.get("/api-docs.json", (req, res) => {
+      res.json(openAPIDocument);
+    });
   }
 
   app.use("/api/v1", v1Routes);
