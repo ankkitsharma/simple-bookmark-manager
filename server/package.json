@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun --hot index.ts",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@types/bun": "latest",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.0.0",
+    "jiti": "^2.6.1",
+    "prettier": "3.7.4",
+    "typescript-eslint": "^8.52.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@t3-oss/env-core": "^0.13.10",
+    "@types/express": "^5.0.6",
+    "express": "^5.2.1",
+    "zod": "^4.3.5"
+  }
+}
