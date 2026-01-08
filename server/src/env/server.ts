@@ -5,6 +5,7 @@ export const env = createEnv({
   server: {
     // DATABASE_URL: z.url(),
     PORT: z.coerce.number(),
+    CORS_ORIGINS: z.string(),
   },
   runtimeEnv: process.env,
 });

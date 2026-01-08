@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bun --hot index.ts",
+    "dev": "bun --hot src/index.ts",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "lint": "eslint ."
@@ -24,7 +24,9 @@
   },
   "dependencies": {
     "@t3-oss/env-core": "^0.13.10",
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
+    "cors": "^2.8.5",
     "express": "^5.2.1",
     "zod": "^4.3.5"
   }
