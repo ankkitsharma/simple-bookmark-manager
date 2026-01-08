@@ -1,26 +1,13 @@
-import express from "express";
 import { env as serverEnv } from "@/env/server";
-import cors from "cors";
-
-const app = express();
+import { createApp } from "@/lib/app-factory";
 
 const port = serverEnv.PORT;
 
-app.use(
-  cors({
-    origin: [serverEnv.CORS_ORIGINS],
-    credentials: true,
-  }),
-);
+const app = createApp({ port });
 
-app.use(express.json());
-
-app.use(express.urlencoded({ extended: true }));
-
-app.get("/", (req, res) => {
-  res.send("Hello World!!!");
-});
-
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
+  console.log(`Swagger docs available at http://localhost:${port}/api-docs`);
 });
+
+export { app, server };

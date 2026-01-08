@@ -12,3 +12,16 @@ generator client {
 datasource db {
   provider = "mysql"
 }
+
+model Booking {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  date      DateTime
+  time      String
+  guests    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("bookings")
+}
