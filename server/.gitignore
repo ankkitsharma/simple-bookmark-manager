@@ -36,4 +36,6 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 /generated/prisma
 
 # Vercel build output
+dist
 .vercel-build
+api/index.js
