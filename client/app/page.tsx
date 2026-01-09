@@ -17,15 +17,25 @@ import { Label } from "@/components/ui/label";
 import { Plus, Calendar, Clock, Users, Mail, User } from "lucide-react";
 import type { CreateBookingRequest } from "@/types/bookingSchema";
 
+// Get today's date in YYYY-MM-DD format for the date input
+const getTodayDate = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
+
 export default function BookingsPage() {
   const { data, isLoading, error } = useBookings();
   const createBooking = useCreateBooking();
   const [open, setOpen] = useState(false);
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    date: "",
-    time: "",
+    date: getTodayDate(),
+    time: "12:00",
     guests: 1,
   });
 
@@ -51,8 +61,8 @@ export default function BookingsPage() {
       setFormData({
         name: "",
         email: "",
-        date: "",
-        time: "",
+        date: getTodayDate(),
+        time: "12:00",
         guests: 1,
       });
     } catch (error) {
