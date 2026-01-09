@@ -1,4 +1,4 @@
-import { createApp } from "../src/lib/app-factory";
+import { createApp } from "@/lib/app-factory";
 
 // Create the Express app instance
 const app = createApp({
